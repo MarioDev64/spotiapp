@@ -4,14 +4,20 @@ import { ROUTES } from "./app.routes";
 import { RouterModule } from '@angular/router';
 import { HttpClientModule } from "@angular/common/http";
 
+//Pipes
+import { NoImagePipe } from './pipes/no-image.pipe';
+import { SecureDomPipe } from "./pipes/secure-dom.pipe";
+
+//Components
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
 import { SearchComponent } from './components/search/search.component';
 import { ArtistComponent } from './components/artist/artist.component';
 import { NavbarComponent } from './components/shared/navbar/navbar.component';
-import { NoImagePipe } from './pipes/no-image.pipe';
 import { CardsComponent } from './components/cards/cards.component';
 import { LoadingComponent } from './components/shared/loading/loading.component';
+import { ErrorsComponent } from './components/errors/errors.component';
+
 
 @NgModule({
   declarations: [
@@ -21,8 +27,10 @@ import { LoadingComponent } from './components/shared/loading/loading.component'
     ArtistComponent,
     NavbarComponent,
     NoImagePipe,
+    SecureDomPipe,
     CardsComponent,
-    LoadingComponent
+    LoadingComponent,
+    ErrorsComponent
   ],
   imports: [
     BrowserModule,
