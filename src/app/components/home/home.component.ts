@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { SpotifyService } from '../../services/spotify.service';
-import { ErrorsComponent } from "../errors/errors.component";
 
 @Component({
   selector: 'app-home',
@@ -14,7 +13,7 @@ export class HomeComponent implements OnInit {
   error:boolean;
   errorMessage:string;
 
-  constructor( private spotify: SpotifyService, private errorsComponent : ErrorsComponent) {
+  constructor( private spotify: SpotifyService) {
     this.loading = true;
 
     this.spotify.getNewReleases()
@@ -27,7 +26,7 @@ export class HomeComponent implements OnInit {
           if(httpError.error != null){
             errorMessage = httpError.error['error'].message;
           }else{
-            errorMessage = this.errorsComponent.errorsHandler(httpError.status);
+            errorMessage = this.spotify.errorsHandler(httpError.status);
           }
                     
           this.loading = false;
